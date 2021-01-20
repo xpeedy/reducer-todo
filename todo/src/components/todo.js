@@ -3,6 +3,7 @@ import React, { useReducer,useState } from "react";
 import reducer, { initialState } from "../reducers";
 
 
+
 // console.log(initialState);
 // let currentState = reducer(initialState, {type: "ADD_TODO", payload: "exercise"})
 // console.log(currentState)
@@ -13,18 +14,15 @@ import reducer, { initialState } from "../reducers";
 // currentState = reducer(currentState, {type: "ADD_TODO", payload: "homework"})
 // console.log(currentState)
 
-const Todo = () => {
-    const [state, dispatch] = useReducer(reducer,initialState)
-    // const [items, setItem] = useState(initialState)
-    console.log(state)
+const Todo = (props) => {
+    const handleClick = () => {
+        props.handleCompleted(props.todo.id)
+    }
     
     return(
-        <div  className={`task${state.completed ? "completed" : ""}`}>
-            {state.map(item => {
-                return <p key={item.id}>{item.item}</p>
-            })}
-            
-        </div>
+        <li className={`todo${props.todo.completed ? " completed" : ""}`}
+            onClick={handleClick}
+        >{props.todo.title}</li>
     )
 }
 

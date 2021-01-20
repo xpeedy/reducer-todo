@@ -1,15 +1,15 @@
 export const ADD_TODO = "ADD_TODO"
-export const COMPLETED = "COMPLETED"
+export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED"
 export const CLEAR_COMPLETED = "CLEAR_COMPLETED"
 
-export const setTodo = (todo) => {
-    return( {type: ADD_TODO, payload: todo} )
+export const addTodo = (title) => {
+    return( {type: ADD_TODO, payload: title} )
 }
 
-export const setComplete = (todoCompleted) => {
-    return( {type: COMPLETED, payload: todoCompleted} )
+export const setCompleted = (id) => {
+    return( {type: TOGGLE_COMPLETED, payload: id} )
 }
 
-export const setClear = () => {
-    return( {type: CLEAR_COMPLETED, payload: ""} )
+export const clearCompleted = () => {
+    return( {type: CLEAR_COMPLETED} )
 }
